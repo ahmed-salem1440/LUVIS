@@ -1,0 +1,39 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="row g-4 mt-4 " *ngIf="!isLoading">
+    <div class="col-md-5" >
+        <div #imageContainer data-bs-toggle="modal" data-bs-target="#exampleModal" class="imageContainer">
+            <img #productImage (mouseleave)="hidezooming()" (mousemove)="zooming($event)" [src]="product.image" class="w-100" alt="">
+        </div>
+    </div>
+    <div #overlay class="overlay shadow col-md-4"></div>
+    <div class="col-md-7 d-flex align-items-center">
+        <div>
+            <h2>{{product.title}}</h2>
+            <p class="my-2"><span>Description:</span> {{product.description}}</p>
+            <span *ngFor="let i of solidStars"><i class="text-success fa-solid fa-star"></i></span>
+            <span *ngIf="halfStar"><i class="text-success fa-solid fa-star-half-stroke"></i></span>
+            <span *ngFor="let i of emptyStar"><i class="text-success fa-regular fa-star"></i></span>
+            <span> {{product.rating.rate}} <span>({{product.rating.count}} vote)</span></span>
+            <div class="d-flex align-items-center">
+                <span class="me-2">Quantity: </span>
+                <div class="prod-quantity d-flex my-3">
+                    <button class="btn btn-success d-flex align-items-center" (click)="productQuantity=productQuantity-1" [disabled]="productQuantity<2"><i class="fa-solid fa-minus"></i></button>
+                    <input [(ngModel)]="productQuantity" [value]="productQuantity" min="1" type="number">
+                    <button class="btn btn-success d-flex align-items-center" (click)="productQuantity=productQuantity+1"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <button [disabled]="productQuantity<1" (click)="updateCart(product,productQuantity)"  class="btn btn-success d-block my-2">+ Add to Cart</button>
+        </div>
+        
+    </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg  modal-dialog-centered">
+      <div class="modal-content">
+<img [src]="product.image" alt="">
+      </div>
+    </div>
+  </div>

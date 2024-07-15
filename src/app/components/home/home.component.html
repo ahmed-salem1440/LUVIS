@@ -1,0 +1,57 @@
+<div class="position-relative">
+    <div class="sliderText text-white shadow p-5 position-absolute ">
+        <h1>Luvis</h1>
+        <h2>Online Is Better</h2>
+        <button class="btn btn-success">Shop Now</button>
+    </div>
+    <div >
+        <owl-carousel-o [options]="mainOptions">
+            <ng-template carouselSlide>
+                <div class="main-slider">
+                    <img class=" h-100" src="../../../assets/main-slider/1.jpg" alt="">
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="main-slider">
+                    <img class=" h-100" src="../../../assets/main-slider/2.jpg" alt="">
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="main-slider">
+                    <img class=" h-100" src="../../../assets/main-slider/3.jpg" alt="">
+                </div>
+            </ng-template>
+            
+    
+          </owl-carousel-o>
+    </div>
+</div>
+<div class="my-5 px-5 ">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide>
+                <div class="slider-container text-center m-3">
+                    <img src="./assets/slider/1.jpg" alt="">
+                    <h3 class="my-2">Leather Men's Shoes</h3>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="slider-container text-center m-3">
+                    <img src="./assets/slider/2.jpg" alt="">
+                    <h3 class="my-2">Stylish Menswear</h3>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="slider-container text-center m-3">
+                    <img src="./assets/slider/3.jpg" alt="">
+                    <h3 class="my-2">Elite Mobiles and Accessories</h3>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="slider-container text-center m-3">
+                    <img src="./assets/slider/4.jpg" alt="">
+                    <h3 class="my-2">High Quality Electronics</h3>
+                </div>
+            </ng-template>
+          </owl-carousel-o>
+    </div>
+<app-products></app-products>

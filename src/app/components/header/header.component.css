@@ -1,0 +1,9 @@
+a.nav-link{
+    color: #198754ab;
+}
+a.nav-link:hover{
+    color: #198754;
+}
+a.nav-link.dropdown-toggle{
+    color: #198754;
+}

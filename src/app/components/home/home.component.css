@@ -1,0 +1,6 @@
+.sliderText{
+    z-index: 2;
+    top:50%;
+    left:15%;
+    transform: translateY(-50%);
+}

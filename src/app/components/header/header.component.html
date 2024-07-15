@@ -1,0 +1,41 @@
+<nav class="navbar sticky-top navbar-expand-lg shadow bg-white">
+    <div class="container">
+      <a class="navbar-brand h1 fw-bolder fs-2" href="#">Luvis</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="text-success fw-bold">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart" routerLinkActive="text-success fw-bold">cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="text-success fw-bold">Products</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-regular fa-user"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link d-flex" routerLink="/cart">
+              <i class="fa-solid fa-cart-shopping text-success"></i>
+            <div *ngIf="cartNumber" class="rounded px-2 rounded-circle text-bg-success mx-1">{{cartNumber}}</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

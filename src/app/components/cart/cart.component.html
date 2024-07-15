@@ -1,0 +1,53 @@
+<div *ngIf="isCartEmpty()" class="text-center text-success mt-5">
+<h2>Your cart is empty <i class="fa-regular fa-face-frown me-2"></i><i class="fa-solid fa-heart-crack"></i></h2>
+<button routerLink="/home" class="btn btn-success"><i class="fa-solid fa-chevron-left"></i> Continue Shopping</button>
+
+</div>
+<div *ngIf="!isCartEmpty()" class="table-responsive">
+  <div class="d-flex justify-content-end my-3">
+    <button (click)="deleteCart()" class=" btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete Cart</button>
+  </div>
+  <table class="table table-striped table-hover text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th class="text-start ps-3" scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col"></th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of userCart">
+          <td><img [src]="item.product.image" class="rounded "  alt=""></td>
+          <td class="text-start ps-3">{{item.product.title}}</td>
+          <td>
+            <div class="prod-quantity d-flex m-auto my-3">
+              <button (click)="updateCart(item.product,item.quantity-1)" class="btn btn-success d-flex align-items-center"  [disabled]="item.quantity<2"><i class="fa-solid fa-minus"></i></button>
+              <input [id]="item.product.id" (change)="updateCart(item.product,item.quantity)" [(ngModel)]="item.quantity" [value]="item.quantity" min="1" type="number">
+              <button (click)="updateCart(item.product,item.quantity+1)" class="btn btn-success d-flex align-items-center" ><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </td>
+          <td><button (click)="updateCart(item.product,0)" class="btn text-danger ms-1"><i class="fa-solid fa-trash-can"></i></button></td>
+          <td>{{item.product.price}} $</td>
+          <td>{{(item.product.price * item.quantity).toFixed(2)}} $</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total Price</td>
+          <td>{{totalPrice.toFixed(2)}} $</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="d-flex justify-content-between">
+      <button routerLink="/home" class="btn btn-success"><i class="fa-solid fa-chevron-left"></i> Continue Shopping</button>
+      <button #checkout (click)="sendCart()" class="btn btn-success">Checkout <i class="fa-solid fa-circle-check"></i></button>
+    </div>
+</div>
+

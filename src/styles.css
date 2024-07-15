@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto:wght@300;400;500;700;900&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.main-slider{
+    height: 550px;
+}
+.bg{
+    background: url(assets/tileable_texture-light_orange.jpg);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.prod-quantity{
+    border-radius: 5px;
+    border: solid 1px black;
+    overflow: hidden;
+    width: fit-content;
+}
+.prod-quantity button{
+    height: 30px;
+    border: none;
+    border-radius: unset;
+}
+.prod-quantity input{
+    width: 50px;
+    text-align: center;
+    border: none;
+    height: 30px;
+}
+.overlay{
+    display: none;
+    /* width: 25%; */
+    height: 50%;
+    background-repeat: no-repeat;
+    border: solid 2px black;
+    top: 25%;
+    left: 50%;
+    transform: translate(0,-50%);
+    position: absolute;
+    z-index: 2;
+}
+.imageContainer{
+    cursor: zoom-in;
+}
+

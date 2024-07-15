@@ -1,0 +1,53 @@
+.product-card{
+    overflow: hidden;
+}
+
+.card{
+    cursor: pointer;
+    transition: scale 0.3s ease-out;
+}
+.card:hover {
+    scale: 1.05;
+}
+.Layer{
+    background-color: #f5f5f54d;
+    position: absolute;
+    top: 100%;
+    transition: top 0.5s;
+    height: 100%;
+    width: 100%;
+}
+.product-card:hover .Layer{
+    top: 0;
+    left: 0;
+}
+.Layer .card-btn {
+    position: absolute;
+    left: 0%;
+    bottom: 15px;
+    transition: color 0.5s , background-color 0.5s , left 0.3s 0.2s;
+}
+.product-card:hover .card-btn {
+left: 50%;
+transform: translateX(-50%);
+}
+.Layer .card-wish-icon{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    transition: right 0.3s 0.2s;
+    padding: 10px;
+    border-radius: 5px;
+    /* background-color: rgb(245, 243, 243); */
+    cursor: pointer;
+}
+.product-card:hover .card-wish-icon{
+    right: 30px;
+}
+.active{
+    background-color: #157347 !important;
+}
+.nav{
+    --bs-nav-link-color: black !important;
+    --bs-nav-link-hover-color: black !important;
+}

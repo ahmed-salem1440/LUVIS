@@ -1,0 +1,87 @@
+
+<div class="w-100">
+  <input placeholder="Search by product name..." [(ngModel)]="searchTerm" type="text" class="mx-auto my-4 w-50 form-control">
+</div>
+<div class="categories d-flex justify-content-center">
+  <div>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+        (click)="getAllProducts()"
+        class="nav-link active"
+        id="pills-home-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-home"
+        type="button"
+        role="tab"
+        aria-controls="pills-home"
+        aria-selected="true"
+      >
+        All Categories
+      </button>
+    </li>
+    <li
+      class="nav-item"
+      *ngFor="let category of categories"
+      role="presentation"
+    >
+      <button
+        (click)="getByCategory(category)"
+        class="nav-link"
+        id="pills-profile-tab"
+        data-bs-toggle="pill"
+        data-bs-target="#pills-profile"
+        type="button"
+        role="tab"
+        aria-controls="pills-profile"
+        aria-selected="false"
+      >
+        {{ category }}
+      </button>
+    </li>
+  </ul>
+</div>
+</div>
+
+
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading" class="row g-3">
+  <div
+    class="col-xl-3 col-lg-4 col-md-6 col-sm-12 p-3"
+    *ngFor="let product of products|search:searchTerm"
+  >
+    <div routerLink="/product/{{ product.id }}" class="card h-100 text-center">
+      <div
+        class="product-card card-body position-relative d-flex align-items-center"
+      >
+        <div
+          class="card-category text-bg-success rounded position-absolute top-0 m-1 start-0 p-1"
+        >
+          {{ product.category }}
+        </div>
+        <div class="image">
+          <img class="w-100" [src]="product.image" [alt]="product.title" />
+        </div>
+        <div class="Layer">
+            <div (click)="stop($event)" class="card-wish-icon btn btn-success">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+          <button (click)="updateCart($event,product)" class="card-btn btn btn-success fw-bold">
+            +Add to Cart
+          </button>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="fw-bold"
+          >{{ product.title.slice(0, 25)
+          }}<span *ngIf="product.description.title > 25">...</span></span
+        >
+        <p class="my-2">
+          {{ product.description.slice(0, 25)
+          }}<span *ngIf="product.description.length > 25">...</span>
+        </p>
+        <span class="fw-bold">${{ product.price }}</span>
+      </div>
+    </div>
+  </div>
+</div>

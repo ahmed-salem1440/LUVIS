@@ -1,0 +1,8 @@
+img{
+    width: 50px;
+    height: 50px;
+    border: solid rgb(31, 29, 29) 1px;
+}
+th{
+    width: fit-content;
+}
