@@ -80,7 +80,11 @@
           {{ product.description.slice(0, 25)
           }}<span *ngIf="product.description.length > 25">...</span>
         </p>
-        <span class="fw-bold">${{ product.price }}</span>
+        <div class="d-flex justify-content-center">
+          <span class="fw-bold me-4">${{ product.price }}</span>
+          <span class="me-0"><i class="fa-solid fa-sm fa-star"></i> {{ product.rating.rate }} ({{ product.rating.count }})</span>
+        </div>
+
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@ isLoading:boolean = true
       next: (response) => {
         this.isLoading = false
         this.products = response;
-        
+        console.log(response)
       },
       error: (err) => {
         console.log(err);
